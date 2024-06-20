@@ -1,4 +1,4 @@
-/usr/bin/python3
+#/usr/bin/python3
 
 import telebot
 import subprocess
@@ -29,7 +29,7 @@ def generate_code(prefix=""):
 # Dictionary to store generated codes with expiry times and approval times
 generated_codes = {}
 
- File to store command logs
+ #file to store command logs
 LOG_FILE = "log.txt"
 
 # Admin balance
@@ -166,7 +166,7 @@ def add_user(message):
 def add_admin(message):
     user_id = str(message.chat.id)
     if user_id != owner_id:
-        bot.reply_tomessage, "Only the owner can add new admins.")
+        bot.reply_to(message, "Only the owner can add new admins.")
         return
 
     command = message.text.split()
@@ -274,16 +274,8 @@ def generate_code():
 # Dictionary to store generated codes with expiry times
 generated_codes = {}
 
-@bot.message_handler(commands=['generatecode'])
-def generate_code_handler(message):
-    user_id = str(message.chat.id)
-    if user_id in admin_ids or user_id == owner_id:
-        code = generate_code()
-        expiry_time = datetime.datetime.now() + datetime.timedelta(minutes=30)
-        generated_codes[code] = expiry_time
-        response = f"Generated code: {code}. This code will expire in 30 minutes."
-    else:
-    @bot.message_handler(commands=['redeem'])
+
+@bot.message_handler(commands=['redeem'])
 def redeem_code_handler(message):
     user_id = str(message.chat.id)
     command = message.text.split()
@@ -527,7 +519,6 @@ bot.polling()
 
 
 
-erience? Take action and get ready for powerful attacks!"""
 
 
 # Function to reply when attack finishes
